@@ -18,5 +18,11 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 		</dependency>
+
+		<!-- zbus -->
+		<dependency>
+			<groupId>org.zbus</groupId>
+			<artifactId>zbus</artifactId>
+		</dependency>
 	</dependencies>
 </project>

@@ -9,9 +9,12 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
 		<junit.version>4.11</junit.version>
 		<java.version>1.7</java.version>
+		
 		<netty.version>3.10.4.Final</netty.version>
+		<zbus.version>6.2.8</zbus.version>
 	</properties>
 
 	<dependencyManagement>
@@ -22,14 +25,29 @@
 				<version>${junit.version}</version>
 				<scope>test</scope>
 			</dependency>
-
+			
+			<!-- zbus -->
 			<dependency>
-				<groupId>io.netty</groupId>
-				<artifactId>netty</artifactId>
-				<version>${netty.version}</version>
+				<groupId>org.zbus</groupId>
+				<artifactId>zbus</artifactId>
+				<version>${zbus.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	
+	<repositories>
+		<repository>
+			<id>nexus</id>
+			<name>local private nexus</name>
+			<url>http://maven.oschina.net/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 
 	<build>
 		<pluginManagement>
@@ -76,7 +94,7 @@
 	</build>
 
 	<modules>
-	<module>crmp-common</module>
-	<module>crmp-probe</module>
+		<module>crmp-common</module>
+		<module>crmp-probe</module>
 	</modules>
 </project>
