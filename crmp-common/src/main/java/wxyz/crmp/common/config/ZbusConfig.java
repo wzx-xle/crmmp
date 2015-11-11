@@ -33,11 +33,16 @@ public class ZbusConfig {
 	}
 	
 	public ZbusConfig(Properties props) {
+		this();
+		if (null == props) {
+			return;
+		}
+		
 		this.host = props.getProperty("zbus.host", ZBUS_HOST);
 		this.port = props.getProperty("zbus.port", ZBUS_PORT);
 		
-		this.statusMqName = props.getProperty("zbus.mq.status.name", ZBUS_MQ_STATUS);
-		this.applicationMqName = props.getProperty("zbus.mq.application.name", ZBUS_MQ_APPLICATION);
+		this.statusMqName = props.getProperty("zbus.mq.status", ZBUS_MQ_STATUS);
+		this.applicationMqName = props.getProperty("zbus.mq.application", ZBUS_MQ_APPLICATION);
 	}
 	
 	/**

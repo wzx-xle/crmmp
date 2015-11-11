@@ -9,11 +9,12 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		
+
 		<junit.version>4.11</junit.version>
 		<java.version>1.7</java.version>
-		
+
 		<netty.version>3.10.4.Final</netty.version>
+		<log4j.version>1.2.16</log4j.version>
 		<zbus.version>6.2.8</zbus.version>
 	</properties>
 
@@ -25,7 +26,13 @@
 				<version>${junit.version}</version>
 				<scope>test</scope>
 			</dependency>
-			
+
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j.version}</version>
+			</dependency>
+
 			<!-- zbus -->
 			<dependency>
 				<groupId>org.zbus</groupId>
@@ -34,7 +41,7 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-	
+
 	<repositories>
 		<repository>
 			<id>nexus</id>
