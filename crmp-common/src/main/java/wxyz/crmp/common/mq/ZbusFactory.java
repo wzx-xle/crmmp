@@ -127,11 +127,15 @@ public class ZbusFactory {
 	 */
 	public Producer createProducer(String mqName) throws MqConnectionException {
 		Producer producer = new Producer(broker, mqName);
+		
+		// 创建mq
 		try {
-			producer.createMQ();
+			if (producer.queryMQ().isStatus404()) {
+				producer.createMQ();
+			}
 		}
 		catch (IOException | InterruptedException e) {
-			throw new MqConnectionException("生产者创建失败！", e);
+			throw new MqConnectionException("生产者构建失败！mq=" + mqName, e);
 		}
 		
 		return producer;
