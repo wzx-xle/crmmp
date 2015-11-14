@@ -76,7 +76,7 @@ public class ZbusFactory {
 		
 		// 创建zbus的公共部分
 		BrokerConfig brokerConfig = new BrokerConfig();
-		brokerConfig.setServerAddress(this.cfg.getHost() + this.cfg.getPort());
+		brokerConfig.setServerAddress(this.cfg.getHost() + ":" + this.cfg.getPort());
 		
 		// 创建broker
 		try {
