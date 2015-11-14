@@ -40,7 +40,7 @@ public class ZbusFactory {
 	 * @throws MqConnectionException mq连接异常
 	 * @CreateTime 2015-11-11 下午2:43:22 create method
 	 */
-	public static ZbusFactory getFactory() throws MqConnectionException {
+	public static ZbusFactory instance() throws MqConnectionException {
 		ZbusFactory zbusFac = null;
 		if (null == zbus) {
 			synchronized (lock) {

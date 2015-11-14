@@ -36,7 +36,7 @@ public class MessageQueueManager {
 	 * @return
 	 * @CreateTime 2015-11-11 下午6:58:34 create method
 	 */
-	public static MessageQueueManager getManager() {
+	public static MessageQueueManager instance() {
 		MessageQueueManager mqManager = null;
 		if (null == manager) {
 			synchronized (lock) {
@@ -77,7 +77,7 @@ public class MessageQueueManager {
 			producer = producerManager.get(mq);
 		}
 		else {
-			producer = ZbusFactory.getFactory().createProducer(mq);
+			producer = ZbusFactory.instance().createProducer(mq);
 			producerManager.put(mq, producer);
 		}
 		
@@ -101,7 +101,7 @@ public class MessageQueueManager {
 	 * @CreateTime 2015-11-11 下午6:48:42 create method
 	 */
 	public synchronized void registerListener(final String mq, final MessageHandler callback) throws MqConnectionException {
-		Consumer consumer = ZbusFactory.getFactory().createConsumer(mq);
+		Consumer consumer = ZbusFactory.instance().createConsumer(mq);
 		// 监听消息
 		try {
 			consumer.onMessage(new org.zbus.net.http.Message.MessageHandler() {
